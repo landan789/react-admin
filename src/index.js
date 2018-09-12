@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
-import App from './pages/App';
+import Member from './pages/member/Member';
 import './index.css';
 
 // import registerServiceWorker from './registerServiceWorker';
@@ -11,7 +11,7 @@ import ROUTERS_CFG from './configs/routers';
 
 const routes = [{
     path: ROUTERS_CFG.MEMBER,
-    component: App,
+    component: Member,
     exact: true
 }];
 

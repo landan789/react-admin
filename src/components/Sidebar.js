@@ -1,11 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Button, Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react';
-
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-
-library.add(faBars);
 
 export default class SidebarExampleSidebar extends Component {
   state = { visible: false }
@@ -56,6 +50,6 @@ export default class SidebarExampleSidebar extends Component {
                   </Sidebar.Pusher>
               </Sidebar.Pushable>
           </div>
-      )
+      );
   }
 }

@@ -1,35 +1,22 @@
 import React, { Component } from 'react';
 
-import Sidebar from 'react-sidebar';
+import { slide as Menu } from 'react-burger-menu';
 
 import logo from './../images/logo.svg';
 import './../styles/Member.css';
 
 class Member extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            sidebarOpen: true
-        };
-        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+    showSettings (event) {
+        event.preventDefault();
     }
-
-    onSetSidebarOpen(open) {
-        this.setState({ sidebarOpen: open });
-    }
-
-    render() {
+    render () {
         return (
-            <Sidebar
-                sidebar={<b>Sidebar content</b>}
-                open={this.state.sidebarOpen}
-                onSetOpen={this.onSetSidebarOpen}
-                styles={{ sidebar: { background: 'white' } }}
-            >
-                <button onClick={() => this.onSetSidebarOpen(true)}>
-              Open sidebar
-                </button>
-            </Sidebar>
+            <Menu>
+                <a id="home" className="menu-item" href="/">Home</a>
+                <a id="about" className="menu-item" href="/about">About</a>
+                <a id="contact" className="menu-item" href="/contact">Contact</a>
+                <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+            </Menu>
         );
     }
 }

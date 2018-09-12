@@ -2,7 +2,7 @@
   text-align: center; }
 
 .Member-logo {
-  animation: Member-logo-spin infinite 20s linear;
+  animation: Member-logo-spin infinite 100s linear;
   height: 80px; }
 
 .Member-header {

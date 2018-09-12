@@ -1,21 +1,37 @@
 import React, { Component } from 'react';
+
+import Sidebar from 'react-sidebar';
+
 import logo from './../images/logo.svg';
 import './../styles/Member.css';
 
 class Member extends Component {
-  render() {
-    return (
-      <div className="Member">
-        <header className="Member-header">
-          <img src={logo} className="Member-logo" alt="logo" />
-          <h1 className="Member-title">Welcome to React</h1>
-        </header>
-        <p className="Member-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            sidebarOpen: true
+        };
+        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+    }
+
+    onSetSidebarOpen(open) {
+        this.setState({ sidebarOpen: open });
+    }
+
+    render() {
+        return (
+            <Sidebar
+                sidebar={<b>Sidebar content</b>}
+                open={this.state.sidebarOpen}
+                onSetOpen={this.onSetSidebarOpen}
+                styles={{ sidebar: { background: 'white' } }}
+            >
+                <button onClick={() => this.onSetSidebarOpen(true)}>
+              Open sidebar
+                </button>
+            </Sidebar>
+        );
+    }
 }
 
 export default Member;

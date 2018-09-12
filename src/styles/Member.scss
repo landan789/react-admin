@@ -1,24 +1,28 @@
 .Member {
-  text-align: center; }
+  text-align: center;
+}
 
 .Member-logo {
   animation: Member-logo-spin infinite 20s linear;
-  height: 80px; }
+  height: 80px;
+}
 
 .Member-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white; }
+  color: white;
+}
 
 .Member-title {
-  font-size: 1.5em; }
+  font-size: 1.5em;
+}
 
 .Member-intro {
-  font-size: large; }
+  font-size: large;
+}
 
 @keyframes Member-logo-spin {
-  from {
-    transform: rotate(0deg); }
-  to {
-    transform: rotate(360deg); } }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

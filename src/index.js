@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import 'semantic-ui-css/semantic.min.css';
+
 import './index.css';
 
 // import registerServiceWorker from './registerServiceWorker';
 
-import IndexRouter from './routers/index';
+import SidebarCpn from './components/Sidebar';
 
 ReactDOM.render(
-    <IndexRouter/>,
+    <SidebarCpn/>,
     document.getElementById('root')
 );
 // registerServiceWorker();

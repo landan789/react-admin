@@ -27,16 +27,28 @@ const __Sidebar = (PageComponet) => {
                             width="thin"
                         >
                             <Menu.Item as="a">
-                                <Icon name="home" />
-                            Home
+                                <Icon name="envelope" />
+                                讯息
                             </Menu.Item>
                             <Menu.Item as="a">
-                                <Icon name="gamepad" />
-                            Games
+                                <Icon name="cny" />
+                                财务
                             </Menu.Item>
                             <Menu.Item as="a">
-                                <Icon name="camera" />
-                            Channels
+                                <Icon name="chart bar" />
+                                分析
+                            </Menu.Item>
+                            <Menu.Item as="a">
+                                <Icon name="chart pie" />
+                                统计
+                            </Menu.Item>
+                            <Menu.Item as="a">
+                                <Icon name="calendar alternate outline" />
+                                行事历
+                            </Menu.Item>
+                            <Menu.Item as="a">
+                                <Icon name="id card" />
+                                会员
                             </Menu.Item>
                         </Sidebar>
 

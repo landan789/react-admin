@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
-import './../styles/Member.css';
+import './../styles/Finance.css';
 
-class Member extends Component {
+class Finance extends Component {
     showSettings (event) {
         event.preventDefault();
     }
     render () {
         return (
             <div className="page">
-                ---------Member---------
+                ---------Finance---------
             </div>
         );
     }
 }
 
-export default Member;
+export default Finance;

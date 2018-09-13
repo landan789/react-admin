@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
-class Contact extends Component {
+
+import './../styles/Message.css';
+
+class Message extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -10,10 +13,10 @@ class Contact extends Component {
     render() {
         return (
             <div className="page">
-                contact
+                ---------Message---------
             </div>
         );
     }
 }
 
-export default Contact;
+export default Message;

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+
 import { Button, Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react';
 
 const __Sidebar = (PageComponet) => {
@@ -26,27 +28,27 @@ const __Sidebar = (PageComponet) => {
                             visible = {visible}
                             width="thin"
                         >
-                            <Menu.Item as="a">
+                            <Menu.Item as={Link} to="/message">
                                 <Icon name="envelope" />
                                 讯息
                             </Menu.Item>
-                            <Menu.Item as="a">
+                            <Menu.Item as={Link} to="/finance">
                                 <Icon name="cny" />
                                 财务
                             </Menu.Item>
-                            <Menu.Item as="a">
+                            <Menu.Item as={Link} to="/chartbar">
                                 <Icon name="chart bar" />
                                 分析
                             </Menu.Item>
-                            <Menu.Item as="a">
+                            <Menu.Item as={Link} to="/chartpie">
                                 <Icon name="chart pie" />
                                 统计
                             </Menu.Item>
-                            <Menu.Item as="a">
+                            <Menu.Item as={Link} to="/calendar">
                                 <Icon name="calendar alternate outline" />
                                 行事历
                             </Menu.Item>
-                            <Menu.Item as="a">
+                            <Menu.Item as={Link} to="/member">
                                 <Icon name="id card" />
                                 会员
                             </Menu.Item>

@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 
-class About extends Component {
+import './../styles/Chartbar.css';
+
+class Chartbar extends Component {
     showSettings (event) {
         event.preventDefault();
     }
     render () {
         return (
             <div className="page">
-                about
+                ---------Chartbar---------
             </div>
         );
     }
 }
 
-export default About;
+export default Chartbar;

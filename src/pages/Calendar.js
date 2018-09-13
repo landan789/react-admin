@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
-import './../styles/Member.css';
+import './../styles/Calendar.css';
 
-class Home extends Component {
+class Calendar extends Component {
     showSettings (event) {
         event.preventDefault();
     }
     render () {
         return (
             <div className="page">
-                home
+                ---------Calendar---------
             </div>
         );
     }
 }
 
-export default Home;
+export default Calendar;

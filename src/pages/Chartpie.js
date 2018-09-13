@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
-import './../styles/Member.css';
+import './../styles/Chartpie.css';
 
-class Member extends Component {
+class Chartpie extends Component {
     showSettings (event) {
         event.preventDefault();
     }
     render () {
         return (
             <div className="page">
-                ---------Member---------
+                ---------chartpie---------
             </div>
         );
     }
 }
 
-export default Member;
+export default Chartpie;

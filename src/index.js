@@ -7,7 +7,7 @@ import './index.css';
 
 // import registerServiceWorker from './registerServiceWorker';
 
-import IndexRouter from './routers/index';
+import IndexRouter from './routers/Index';
 
 ReactDOM.render(
     <IndexRouter/>,

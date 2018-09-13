@@ -28,6 +28,10 @@ const __Sidebar = (PageComponet) => {
                             visible = {visible}
                             width="thin"
                         >
+                            <Menu.Item as={Link} to="/home">
+                                <Icon name="home" />
+                                首页
+                            </Menu.Item>
                             <Menu.Item as={Link} to="/message">
                                 <Icon name="envelope" />
                                 讯息
@@ -52,10 +56,14 @@ const __Sidebar = (PageComponet) => {
                                 <Icon name="id card" />
                                 会员
                             </Menu.Item>
+                            <Menu.Item as={Link} to="/service">
+                                <Icon name="phone" />
+                                客服
+                            </Menu.Item>
                         </Sidebar>
 
                         <Sidebar.Pusher>
-                            <Segment basic >
+                            <Segment basic>
                                 <PageComponet>
 
                                 </PageComponet>

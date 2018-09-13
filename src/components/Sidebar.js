@@ -13,35 +13,35 @@ const __Sidebar = (PageComponet) => {
             return (
                 <div>
                     <Button icon basic onClick={this.handleButtonClick}>
-                        <Icon name='bars' />
+                        <Icon name="bars" />
                     </Button>
-                    <Sidebar.Pushable as={Segment}>
+                    <Sidebar.Pushable as={Segment} className="mt-0">
                         <Sidebar
                             as={Menu}
-                            animation='overlay'
-                            icon='labeled'
+                            animation="overlay"
+                            icon="labeled"
                             inverted
                             onHide={this.handleSidebarHide}
                             vertical
                             visible = {visible}
-                            width='thin'
+                            width="thin"
                         >
-                            <Menu.Item as='a'>
-                                <Icon name='home' />
+                            <Menu.Item as="a">
+                                <Icon name="home" />
                             Home
                             </Menu.Item>
-                            <Menu.Item as='a'>
-                                <Icon name='gamepad' />
+                            <Menu.Item as="a">
+                                <Icon name="gamepad" />
                             Games
                             </Menu.Item>
-                            <Menu.Item as='a'>
-                                <Icon name='camera' />
+                            <Menu.Item as="a">
+                                <Icon name="camera" />
                             Channels
                             </Menu.Item>
                         </Sidebar>
 
                         <Sidebar.Pusher>
-                            <Segment basic>
+                            <Segment basic >
                                 <PageComponet>
 
                                 </PageComponet>

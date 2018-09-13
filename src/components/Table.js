@@ -3,7 +3,8 @@ import { Table } from 'semantic-ui-react';
 
 class _Table extends Component {
     static defaultProps = {
-        members: []
+        members: [],
+        fields: []
     }
     constructor(){
         super();
@@ -14,17 +15,17 @@ class _Table extends Component {
             <Table celled selectable>
                 <Table.Header>
                     <Table.Row>
-                        <Table.HeaderCell>ID</Table.HeaderCell>
-                        <Table.HeaderCell>Email</Table.HeaderCell>
-                        <Table.HeaderCell>Name</Table.HeaderCell>
+                        {this.props.fields.map((field) => (
+                            <Table.HeaderCell key={field.toString()}>{field}</Table.HeaderCell>
+                        ))}
                     </Table.Row>
                 </Table.Header>
                 <Table.Body>
                     {this.props.rows.map((row) => (
                         <Table.Row key={row.toString()}>
-                            <Table.Cell>{row.id}</Table.Cell>
-                            <Table.Cell>{row.email}</Table.Cell>
-                            <Table.Cell>{row.name}</Table.Cell>
+                            {Object.keys(row).map((field) => (
+                                <Table.Cell key={field.toString()}>{row[field]}</Table.Cell>
+                            ))}
                         </Table.Row>
                     ))}
                 </Table.Body>

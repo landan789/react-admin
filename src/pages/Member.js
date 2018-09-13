@@ -50,11 +50,16 @@ class Member extends Component {
             id: '004',
             email: 'jone@gmail.com',
             name: 'Jone'
-        }];  
-        
+        }];
+
+        let fields = [
+            'ID',
+            '电邮',
+            '姓名'
+        ];
         return (
             <div className="page">
-                <Table rows={members} />
+                <Table rows={members} fields={fields}/>
             </div>
         );
     }

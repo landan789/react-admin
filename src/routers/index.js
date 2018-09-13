@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
+import SidebarComponent from './../components/Sidebar';
 import AboutPage from './../pages/About';
 import ContactPage from './../pages/Contact';
 import HomePage from './../pages/Home';
@@ -9,19 +10,19 @@ import MemberPage from './../pages/Member';
 
 const routes = [{
     path: '/about',
-    component: AboutPage,
+    component: SidebarComponent(AboutPage),
     exact: true
 }, {
     path: '/contact',
-    component: ContactPage,
+    component: SidebarComponent(ContactPage),
     exact: true
 }, {
     path: '/home',
-    component: HomePage,
+    component: SidebarComponent(HomePage),
     exact: true
 }, {
     path: '/member',
-    component: MemberPage,
+    component: SidebarComponent(MemberPage),
     exact: true
 }];
 

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-
-class Member extends Component {
+class Contact extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -10,10 +9,11 @@ class Member extends Component {
 
     render() {
         return (
-            <div>
+            <div className="page">
+                contact
             </div>
         );
     }
 }
 
-export default Member;
+export default Contact;

@@ -7,10 +7,10 @@ import './index.css';
 
 // import registerServiceWorker from './registerServiceWorker';
 
-import SidebarCpn from './components/Sidebar';
+import IndexRouter from './routers/index';
 
 ReactDOM.render(
-    <SidebarCpn/>,
+    <IndexRouter/>,
     document.getElementById('root')
 );
 // registerServiceWorker();

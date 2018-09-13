@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Table } from 'semantic-ui-react';
 
 class _Table extends Component {
     static defaultProps = {
         members: [],
         fields: []
+    }
+
+    static propTypes = {
+        members: PropTypes.array,
+        fields: PropTypes.array
     }
     constructor(){
         super();

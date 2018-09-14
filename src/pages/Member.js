@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import MemberStore from '../stores/Member';
+import MemberAction from '../actions/Member';
 
 import './../styles/Member.css';
 
@@ -31,16 +33,38 @@ class Member extends Component {
             '姓名'
         ];
 
+        // assign state directly insted of setState method
         this.state = {
             members: members,
             fields: fields
         };
     }
 
-    showSettings (event) {
-        event.preventDefault();
+    getInitialState() {
+        return {
+            mambers: MemberStore.getAll()
+        };
     }
-    render () {
+
+    componentDidMount() {
+        MemberStore.addChangeListener(this._onChange);
+    }
+
+    componentWillUnmount() {
+        MemberStore.removeChangeListener(this._onChange);
+    }
+
+    _onChange() {
+        this.setState({
+            members: MemberStore.findAll()
+        });
+    }
+
+    insert(event) {
+        MemberAction.insert('new item');
+    }
+
+    render() {
         return (
             <div className="page">
                 <Table rows={this.state.members} fields={this.state.fields}/>

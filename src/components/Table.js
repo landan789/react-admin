@@ -12,8 +12,9 @@ class _Table extends Component {
         members: PropTypes.array,
         fields: PropTypes.array
     }
-    constructor(){
+    constructor() {
         super();
+        console.log('construct...');
     }
 
     render() {

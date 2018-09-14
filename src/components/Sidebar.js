@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-import { Button, Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react';
+import { Button, Header, Icon, Menu, Segment, Sidebar } from 'semantic-ui-react';
 
-const __Sidebar = (PageComponet) => {
+const __Sidebar = (PageComponent) => {
     class _Sidebar extends Component {
         state = { visible: false }
 
@@ -64,9 +64,8 @@ const __Sidebar = (PageComponet) => {
 
                         <Sidebar.Pusher>
                             <Segment basic>
-                                <PageComponet>
-
-                                </PageComponet>
+                                <PageComponent>
+                                </PageComponent>
                             </Segment>
                         </Sidebar.Pusher>
                     </Sidebar.Pushable>

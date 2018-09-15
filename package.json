@@ -27,10 +27,10 @@
   },
   "scripts": {
     "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && npm run build-js",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ -w -r",
     "build-css": "node-sass-chokidar src/ -o src/",
     "start-js": "react-scripts start",
-    "build": "build-css && build-js",
     "build-js": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

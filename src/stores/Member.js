@@ -22,9 +22,8 @@ let Member = Object.assign(
             }
             return this.data;
         },
-        insert: function (member) {
-            debugger;
-            this.data.push(member);
+        insert: function (members) {
+            this.data = [...this.data, ...members];
         },
         emitChange: function () {
             this.emit('change');

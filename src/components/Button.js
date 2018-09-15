@@ -8,7 +8,7 @@ class _Button extends Component {
 
     render() {
         return (
-            <Button icon={this.props.icon} />
+            <Button icon={this.props.icon} onClick={this.props.onClick}/>
         );
     }
 }

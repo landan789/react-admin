@@ -4,14 +4,16 @@ import MemberStore from './../stores/Member';
 let dispatcher = new Dispatcher();
 
 dispatcher.register((action) => {
+    let members;
     switch (action.type) {
         case 'FIND_MEMBER':
-            let members = action.payload.members;
+            members = action.payload.members;
             MemberStore.find(members);
             MemberStore.emitChange();
             break;
         case 'INSERT_MEMBER':
-            MemberStore.insert(action.member);
+            members = action.payload.members;
+            MemberStore.insert(members);
             MemberStore.emitChange();
             break;
         default:

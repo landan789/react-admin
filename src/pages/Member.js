@@ -12,6 +12,8 @@ class Member extends Component {
         super(props);
         this._onChange = this._onChange.bind(this);
         this.onInsert = this.onInsert.bind(this);
+        this.onHaha = this.onHaha.bind(this);
+
         let fields = [
             'ID',
             '电邮',
@@ -50,6 +52,10 @@ class Member extends Component {
         MemberAction.insert(member);
     }
 
+    onHaha(event) {
+        console.log('haha...');
+    }
+
     render() {
         return (
             <div className="page">
@@ -59,5 +65,7 @@ class Member extends Component {
         );
     }
 }
+
+
 
 export default Member;

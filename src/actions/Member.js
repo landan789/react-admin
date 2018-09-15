@@ -23,7 +23,6 @@ const MemberAction = {
         });
     },
     insert(member) {
-        debugger;
         window.fetch('http://fea.jkpot.com:3002/api/member', {
             method: 'POST',
             body: JSON.stringify({
@@ -35,8 +34,8 @@ const MemberAction = {
             }
         }).then((res) => {
             return res.json();
-        }).then((member) => {
-            let members = [member];
+        }).then((resJson) => {
+            let members = resJson.data;
             IndexDispatcher.dispatch({
                 type: 'INSERT_MEMBER',
                 payload: {

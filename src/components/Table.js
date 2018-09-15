@@ -18,6 +18,9 @@ class _Table extends Component {
     }
 
     render() {
+        console.log(this.props.fields);
+        console.log(this.props.rows);
+
         return (
             <Table celled selectable>
                 <Table.Header>

@@ -56,7 +56,6 @@ const IndexRouters = () => (
                 path={route.path}
                 component={route.component}
             />))}
-            <Redirect to={routes[0].path} />
         </Switch>
     </BrowserRouter>
 );

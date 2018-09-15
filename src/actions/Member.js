@@ -2,19 +2,28 @@ import IndexDispatcher from './../dispatcher/Index';
 
 const MemberAction = {
     find() {
-        fetch('/api/members.json').then((res) => {
+        window.fetch('http://fea.jkpot.com:3002/api/member', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'text/plain'
+            },
+            cache: 'no-cache',
+            mode: 'cors',
+            credentials: 'include'
+        }).then((res) => {
             return res.json();
-        }).then((members) => {
+        }).then((resJson) => {
             IndexDispatcher.dispatch({
-                type: 'FIND_MEMBERS',
+                type: 'FIND_MEMBER',
                 payload: {
-                    members: members
+                    members: resJson.data
                 }
             });
         });
     },
     insert(member) {
-        fetch('/api/members.json', {
+        window.fetch('http://fea.jkpot.com:3002/api/member', {
             method: 'POST',
             body: JSON.stringify({
                 ...member
@@ -26,10 +35,11 @@ const MemberAction = {
         }).then((res) => {
             return res.json();
         }).then((member) => {
+            let members = [member];
             IndexDispatcher.dispatch({
-                type: 'INSERT_MEMBERS',
+                type: 'INSERT_MEMBER',
                 payload: {
-                    members: member
+                    members: members
                 }
             });
         });

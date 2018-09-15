@@ -9,45 +9,24 @@ import Table from './../components/Table';
 class Member extends Component {
     constructor(props) {
         super(props);
-        let members = [{
-            id: '001',
-            email: 'tom@gmail.com',
-            name: 'Tom'
-        }, {
-            id: '002',
-            email: 'mary@gmail.com',
-            name: 'Mary'
-        }, {
-            id: '003',
-            email: 'jim@gmail.com',
-            name: 'Jim'
-        }, {
-            id: '004',
-            email: 'jone@gmail.com',
-            name: 'Jone'
-        }];
-
+        this._onChange = this._onChange.bind(this);
         let fields = [
             'ID',
             '电邮',
-            '姓名'
+            '姓名',
+            '备注'
         ];
 
         // assign state directly insted of setState method
         this.state = {
-            members: members,
+            members: MemberStore.find(),
             fields: fields
-        };
-    }
-
-    getInitialState() {
-        return {
-            mambers: MemberStore.getAll()
         };
     }
 
     componentDidMount() {
         MemberStore.addChangeListener(this._onChange);
+        MemberAction.find();
     }
 
     componentWillUnmount() {
@@ -56,11 +35,11 @@ class Member extends Component {
 
     _onChange() {
         this.setState({
-            members: MemberStore.findAll()
+            members: MemberStore.find()
         });
     }
 
-    insert(event) {
+    onInsert(event) {
         MemberAction.insert('new item');
     }
 

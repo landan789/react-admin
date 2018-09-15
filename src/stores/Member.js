@@ -5,8 +5,21 @@ let Member = Object.assign(
     {},
     EventEmitter.prototype,
     {
-        data: [],
-        findAll: function () {
+        data: [{
+            'id': '001',
+            'email': 'tom@gmail.com',
+            'name': 'Tom',
+            'note': 'in store'
+        }, {
+            'id': '002',
+            'email': 'mary@gmail.com',
+            'name': 'Mary',
+            'note': 'in store'
+        }],
+        find(members) {
+            if (members) {
+                this.data = members;
+            }
             return this.data;
         },
         insert: function (member) {

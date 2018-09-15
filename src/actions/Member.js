@@ -22,7 +22,8 @@ const MemberAction = {
             });
         });
     },
-    insert(member) {
+    insert(members) {
+        let member = members.shift();
         window.fetch('http://fea.jkpot.com:3002/api/member', {
             method: 'POST',
             body: JSON.stringify({

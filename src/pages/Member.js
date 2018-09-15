@@ -45,11 +45,11 @@ class Member extends Component {
 
     onInsert(event) {
         let member = {
-            id: '777',
             email: 'seven@gmail.com',
             name: 'Seven'
         };
-        MemberAction.insert(member);
+        let members = [member];
+        MemberAction.insert(members);
     }
 
     onHaha(event) {

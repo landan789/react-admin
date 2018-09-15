@@ -23,6 +23,7 @@ const MemberAction = {
         });
     },
     insert(member) {
+        debugger;
         window.fetch('http://fea.jkpot.com:3002/api/member', {
             method: 'POST',
             body: JSON.stringify({

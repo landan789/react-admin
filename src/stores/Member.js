@@ -23,6 +23,7 @@ let Member = Object.assign(
             return this.data;
         },
         insert: function (member) {
+            debugger;
             this.data.push(member);
         },
         emitChange: function () {

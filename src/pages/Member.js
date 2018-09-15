@@ -5,11 +5,13 @@ import MemberAction from '../actions/Member';
 import './../styles/Member.css';
 
 import Table from './../components/Table';
+import Button from './../components/Button';
 
 class Member extends Component {
     constructor(props) {
         super(props);
         this._onChange = this._onChange.bind(this);
+        this.onInsert = this.onInsert.bind(this);
         let fields = [
             'ID',
             '电邮',
@@ -40,12 +42,18 @@ class Member extends Component {
     }
 
     onInsert(event) {
-        MemberAction.insert('new item');
+        let member = {
+            id: '777',
+            email: 'seven@gmail.com',
+            name: 'Seven'
+        };
+        MemberAction.insert(member);
     }
 
     render() {
         return (
             <div className="page">
+                <Button icon="plus" onClick={this.onInsert}></Button>
                 <Table rows={this.state.members} fields={this.state.fields}/>
             </div>
         );

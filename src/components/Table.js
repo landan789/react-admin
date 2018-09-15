@@ -18,9 +18,6 @@ class _Table extends Component {
     }
 
     render() {
-        console.log(this.props.fields);
-        console.log(this.props.rows);
-
         return (
             <Table celled selectable>
                 <Table.Header>
@@ -32,7 +29,7 @@ class _Table extends Component {
                 </Table.Header>
                 <Table.Body>
                     {this.props.rows.map((row) => (
-                        <Table.Row key={row.toString()}>
+                        <Table.Row key={row.id.toString()}>
                             {Object.keys(row).map((field) => (
                                 <Table.Cell key={field.toString()}>{row[field]}</Table.Cell>
                             ))}
@@ -40,7 +37,7 @@ class _Table extends Component {
                     ))}
                 </Table.Body>
             </Table>
-        );  
+        );
     }
 }
 

@@ -4,12 +4,12 @@ import { Table } from 'semantic-ui-react';
 
 class _Table extends Component {
     static defaultProps = {
-        members: [],
+        rows: [],
         fields: []
     }
 
     static propTypes = {
-        members: PropTypes.array,
+        rows: PropTypes.array,
         fields: PropTypes.array
     }
     constructor() {
@@ -18,6 +18,8 @@ class _Table extends Component {
     }
 
     render() {
+        console.log(this.props.rows);
+
         return (
             <Table celled selectable>
                 <Table.Header>

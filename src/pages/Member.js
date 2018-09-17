@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import MemberStore from '../stores/Member';
-import MemberAction from '../actions/Member';
 
-import './../styles/Member.css';
+import indexStore from '../stores/index';
+import { find as memberFind, insert as memberInsert } from '../actions/member';
 
 import Table from './../components/Table';
 import Button from './../components/Button';
 
+import './../styles/Member.css';
+
 class Member extends Component {
     constructor(props) {
         super(props);
-        this._onChange = this._onChange.bind(this);
         this.onInsert = this.onInsert.bind(this);
-        this.onHaha = this.onHaha.bind(this);
 
         let fields = [
             'ID',
@@ -23,24 +22,21 @@ class Member extends Component {
 
         // assign state directly insted of setState method
         this.state = {
-            members: MemberStore.find(),
             fields: fields
         };
+
+        indexStore.subscribe(() => {
+            this.setState({
+                members: indexStore.getState().members
+            });
+        });
     }
 
     componentDidMount() {
-        MemberStore.addChangeListener(this._onChange);
-        MemberAction.find();
+        indexStore.dispatch(memberFind());
     }
 
     componentWillUnmount() {
-        MemberStore.removeChangeListener(this._onChange);
-    }
-
-    _onChange() {
-        this.setState({
-            members: MemberStore.find()
-        });
     }
 
     onInsert(event) {
@@ -49,11 +45,7 @@ class Member extends Component {
             name: 'Seven'
         };
         let members = [member];
-        MemberAction.insert(members);
-    }
-
-    onHaha(event) {
-        console.log('haha...');
+        indexStore.dispatch(memberInsert(members));
     }
 
     render() {
@@ -65,7 +57,5 @@ class Member extends Component {
         );
     }
 }
-
-
 
 export default Member;

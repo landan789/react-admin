@@ -1,8 +1,23 @@
-import IndexDispatcher from './../dispatcher/Index';
+// real action
+const _find = (members) => {
+    return {
+        type: 'MEMBER_FIND',
+        members: members
+    };
+};
 
-const MemberAction = {
-    find() {
-        window.fetch('http://fea.jkpot.com:3002/api/member', {
+// real action
+const _insert = (members) => {
+    return {
+        type: 'MEMBER_INSERT',
+        members: members
+    };
+};
+
+// wrapped action
+const find = () => {
+    return (dispatch) => {
+        return window.fetch('http://fea.jkpot.com:3002/api/member', {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -14,17 +29,17 @@ const MemberAction = {
         }).then((res) => {
             return res.json();
         }).then((resJson) => {
-            IndexDispatcher.dispatch({
-                type: 'FIND_MEMBER',
-                payload: {
-                    members: resJson.data
-                }
-            });
+            let members = resJson.data;
+            dispatch(_find(members));
         });
-    },
-    insert(members) {
+    };
+};
+
+// wrapped action
+const insert = (members) => {
+    return (dispatch) => {
         let member = members.shift();
-        window.fetch('http://fea.jkpot.com:3002/api/member', {
+        return window.fetch('http://fea.jkpot.com:3002/api/member', {
             method: 'POST',
             body: JSON.stringify({
                 ...member
@@ -37,14 +52,12 @@ const MemberAction = {
             return res.json();
         }).then((resJson) => {
             let members = resJson.data;
-            IndexDispatcher.dispatch({
-                type: 'INSERT_MEMBER',
-                payload: {
-                    members: members
-                }
-            });
+            dispatch(_insert(members));
         });
-    }
+    };
 };
 
-export default MemberAction;
+export {
+    find,
+    insert
+};

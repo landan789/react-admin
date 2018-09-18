@@ -14,50 +14,47 @@ const _insert = (members) => {
     };
 };
 
-// wrapped action
-const find = () => {
-    return (dispatch) => {
-        return window.fetch('http://fea.jkpot.com:3002/api/member', {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'text/plain'
-            },
-            cache: 'no-cache',
-            mode: 'cors',
-            credentials: 'include'
-        }).then((res) => {
-            return res.json();
-        }).then((resJson) => {
-            let members = resJson.data;
-            dispatch(_find(members));
-        });
-    };
-};
+class Member {
+    find () {
+        return (dispatch) => {
+            return window.fetch('http://fea.jkpot.com:3002/api/member', {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'text/plain'
+                },
+                cache: 'no-cache',
+                mode: 'cors',
+                credentials: 'include'
+            }).then((res) => {
+                return res.json();
+            }).then((resJson) => {
+                let members = resJson.data;
+                dispatch(_find(members));
+            });
+        };
+    }
 
-// wrapped action
-const insert = (members) => {
-    return (dispatch) => {
-        let member = members.shift();
-        return window.fetch('http://fea.jkpot.com:3002/api/member', {
-            method: 'POST',
-            body: JSON.stringify({
-                ...member
-            }),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        }).then((res) => {
-            return res.json();
-        }).then((resJson) => {
-            let members = resJson.data;
-            dispatch(_insert(members));
-        });
-    };
-};
+    insert (members) {
+        return (dispatch) => {
+            let member = members.shift();
+            return window.fetch('http://fea.jkpot.com:3002/api/member', {
+                method: 'POST',
+                body: JSON.stringify({
+                    ...member
+                }),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            }).then((res) => {
+                return res.json();
+            }).then((resJson) => {
+                let members = resJson.data;
+                dispatch(_insert(members));
+            });
+        };
+    }
+}
 
-export {
-    find,
-    insert
-};
+export default new Member();

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import indexStore from '../stores/index';
-import { find as memberFind, insert as memberInsert } from '../actions/member';
+import memberAction from '../actions/member';
 
 import Table from './../components/Table';
 import Button from './../components/Button';
@@ -33,7 +33,7 @@ class Member extends Component {
     }
 
     componentDidMount() {
-        indexStore.dispatch(memberFind());
+        indexStore.dispatch(memberAction.find());
     }
 
     componentWillUnmount() {
@@ -45,7 +45,7 @@ class Member extends Component {
             name: 'Seven'
         };
         let members = [member];
-        indexStore.dispatch(memberInsert(members));
+        indexStore.dispatch(memberAction.insert(members));
     }
 
     render() {

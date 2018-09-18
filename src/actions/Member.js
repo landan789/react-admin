@@ -1,4 +1,4 @@
-// real action
+// This function is a real action
 const _find = (members) => {
     return {
         type: 'MEMBER_FIND',
@@ -6,7 +6,7 @@ const _find = (members) => {
     };
 };
 
-// real action
+// This function is a real action
 const _insert = (members) => {
     return {
         type: 'MEMBER_INSERT',
@@ -14,6 +14,7 @@ const _insert = (members) => {
     };
 };
 
+// The methods of this class are a wrapped actions
 class Member {
     find () {
         return (dispatch) => {

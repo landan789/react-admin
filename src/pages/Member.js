@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import indexStore from '../stores/index';
 import memberAction from '../actions/member';
 
 import Table from './../components/Table';
@@ -12,6 +11,8 @@ import './../styles/Member.css';
 class _Member extends Component {
     constructor(props) {
         super(props);
+        this.onFind = this.onFind.bind(this);
+        this.onInsert = this.onInsert.bind(this);
 
         let fields = [
             'ID',
@@ -24,19 +25,17 @@ class _Member extends Component {
         this.state = {
             fields: fields
         };
-
-        indexStore.subscribe(() => {
-            this.setState({
-                members: indexStore.getState().members
-            });
-        });
     }
 
     componentDidMount() {
-        indexStore.dispatch(memberAction.find());
+        this.onFind();
     }
 
     componentWillUnmount() {
+    }
+
+    onFind() {
+        this.props.onFind();
     }
 
     onInsert(event) {
@@ -45,7 +44,7 @@ class _Member extends Component {
             name: 'Seven'
         };
         let members = [member];
-        indexStore.dispatch(memberAction.insert(members));
+        this.props.onInsert(members);
     }
 
     render() {

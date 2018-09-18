@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import memberAction from '../actions/member';
+import memberAction from '../actions/Member';
 
 import Table from './../components/Table';
 import Button from './../components/Button';
